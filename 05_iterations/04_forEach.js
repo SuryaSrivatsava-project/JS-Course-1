@@ -35,3 +35,10 @@ myCoding.forEach((val)=>{
     const {languageFileName,languageName} = val;
     console.log(languageFileName,languageName)
 })
+
+// forEach does not even return
+const values = coding.forEach(element => {
+    console.log(element);
+    return element;
+});
+console.log(values)
