@@ -52,4 +52,20 @@ if(true){
         const website = 'youtube'
         console.log(website + username)
     }
+    // console.log(website);
 }
+// console.log(username);
+
+
+// Function types
+//Declaration
+console.log(addone(1));
+function addone(num){
+    return num+1
+}
+// Expression
+// console.log(addTwo(2)) // cannot access here using expression
+const addTwo = function(num){
+    return num+2;
+}
+console.log(addTwo(2));
