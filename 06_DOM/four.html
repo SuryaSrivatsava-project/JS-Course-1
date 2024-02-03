@@ -15,7 +15,7 @@
 </body>
 <script>
     //Adding HTML Elements
-    
+
     // Here we traverse entire DOM using innerHTML not recommened for huge projects
     function addLanguage(langName){
         const li = document.createElement('li');
@@ -34,6 +34,26 @@
     addOptiLanguage('GoLang')
 
     // Editing HTML Elements
+    // getting childs #id:nth-child(1), .class:nth-child(1), // 1st child
+    // getting odd & even childs li:nth-child(odd) li:nth-child(even)
+    // getting multiples of number childs li:nth-child(2n)
+    const secondLanguage = document.querySelector("li:nth-child(2)");
+    console.log(secondLanguage)
+    const newLi = document.createElement('li');
+    newLi.textContent = "Mojo"
+    // replacing the element
+    secondLanguage.replaceWith(newLi)
 
+    //Edit replace first child with GoLang
+    const firstLanguage = document.querySelector("li:first-child");
+    // firstLanguage.replaceWith("GoLang") 
+    // or  we can use OuterHTML as well 
+    firstLanguage.outerHTML = '<li>TypeScript</li>'
+
+    //remove
+    // const lastLanguage = document.querySelector('.language').lastElementChild;
+    const lastLanguage = document.querySelector('li:last-child')
+    lastLanguage.remove()
+    
 </script>
 </html>
