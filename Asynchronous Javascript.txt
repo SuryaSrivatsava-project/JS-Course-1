@@ -1,2 +1,3 @@
 Javascript is synchronous and single thread by default
 Execution context is one by one line
+4:17:03
