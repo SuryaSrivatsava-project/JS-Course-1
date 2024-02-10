@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body style="background-color: #212121;color: white;">
     <h1>Sample</h1>
@@ -11,6 +12,11 @@
 <script>
     const requestURL = 'https://api.github.com/users/hiteshchoudhary'
     const XHR = new XMLHttpRequest();
+    const body = document.body;
+    const div = document.createElement('div');
+    div.classList.add('.container')
+    const img = document.createElement('img');
+    const p =   document.createElement('p');
     XHR.open('GET',requestURL)
     XHR.onreadystatechange = function () {
         console.log(XHR.readyState);
@@ -19,8 +25,15 @@
             // JSON.parse(JSON String) converts API Data to JS JSON
             // JSON.stringify(JS JSON) converts to API format
             const data = JSON.parse(this.responseText);
+            const image = data.avatar_url;
+            console.log(this.responseText);
             console.log(this.responseText)
             console.log(data.followers);
+            img.setAttribute('src',image);
+            p.textContent = data.followers;
+            div.append(img);
+            div.append(p);
+            body.append(div);
         }
     }
     XHR.send()
