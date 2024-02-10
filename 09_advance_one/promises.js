@@ -109,13 +109,8 @@ async function getAllUsers(){
 }
 getAllUsers()
 
-*/
 
-// fetch('https://jsonplaceholder.typicode.com/users').then((response)=>{
-//     return response.json();
-// }).then((resp)=>{
-//      console.log(resp)}).catch(e=>console.log(e))
-
+// Async/Await examples
 function dataGame(){
 const data = new Promise((resolve,reject)=>{
     console.log('done')
@@ -140,3 +135,11 @@ async function fetchData(){
     console.log(dataTwo)
 }
 fetchData();
+
+*/
+
+// fetch('https://jsonplaceholder.typicode.com/users').then((response)=>{
+//     return response.json();
+// }).then((resp)=>{
+//      console.log(resp)}).catch(e=>console.log(e))
+
