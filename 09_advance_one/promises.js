@@ -111,8 +111,32 @@ getAllUsers()
 
 */
 
-fetch('https://jsonplaceholder.typicode.com/users').then((response)=>{
-    return response.json();
-}).then((resp)=>{
-     console.log(resp)}).catch(e=>console.log(e))
+// fetch('https://jsonplaceholder.typicode.com/users').then((response)=>{
+//     return response.json();
+// }).then((resp)=>{
+//      console.log(resp)}).catch(e=>console.log(e))
 
+function dataGame(){
+const data = new Promise((resolve,reject)=>{
+    console.log('done')
+    resolve('completed');
+})
+return data;
+}
+
+function dataGame2(){
+    const data = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('completed set 2');
+        },1000)
+        
+    })
+    return data;
+    }
+async function fetchData(){
+    const dataOne = await dataGame();
+    const dataTwo = await dataGame2();
+    console.log(dataOne)
+    console.log(dataTwo)
+}
+fetchData();
