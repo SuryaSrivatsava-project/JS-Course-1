@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;color: white;">
+    <h1>Sample</h1>
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/hiteshchoudhary'
+    const XHR = new XMLHttpRequest();
+    XHR.open('GET',requestURL)
+    XHR.onreadystatechange = function () {
+        console.log(XHR.readyState);
+        if(XHR.readyState === 4){
+            // Here the data comes up in String format which is API data
+            // JSON.parse(JSON String) converts API Data to JS JSON
+            // JSON.stringify(JS JSON) converts to API format
+            const data = JSON.parse(this.responseText);
+            console.log(this.responseText)
+            console.log(data.followers);
+        }
+    }
+    XHR.send()
+</script>
+</html>
