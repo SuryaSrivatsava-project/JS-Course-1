@@ -13,4 +13,5 @@ start.addEventListener('click', function () {
 });
 stop.addEventListener('click', function () {
   clearInterval(clear);
+  clear = null;
 });
