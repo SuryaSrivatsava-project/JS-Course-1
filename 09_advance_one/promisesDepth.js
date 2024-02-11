@@ -1,6 +1,7 @@
 /** Promises
  * Promises are used to handle async operations
  * Rather passing a function as arg or as a callback we attach callback function to Promise object using this
+ * They are immutable
  */
 
 const cart = ["shoes","pants","kurta"];
