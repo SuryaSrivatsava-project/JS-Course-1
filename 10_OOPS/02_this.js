@@ -24,6 +24,13 @@ x();
 
 -  this inside a Objects Method
    1. value of this keyword in a method is the Object itself
+
+- this using call, apply and bind makes this point to reference used to execute the function
+
+- this inside arrow Functions
+  1. arrow functions do not have their own this keyword
+  2. They take it from lexical environment where the "arrow function is enclosed"
+  3. where the object is present in lexical context, gets this from enclosed lexical context {window object}
 */
 
 //this inside a Objects method
@@ -41,3 +48,29 @@ const student2={
 }
 
 student.printName.call(student2) // value of this=student2
+
+
+// this inside an arrow Function
+const obj ={
+    a:'surya',
+    x: () =>{
+        console.log(this);
+        // where the object is present in lexical context
+        // gets this from enclosed lexical context {window object}
+    }
+}
+
+obj.x()
+
+const obj2 ={
+    a:'surya',
+    x: function(){
+        const y = ()=>{
+            console.log(this);
+            // here the value is this object itself
+        }
+        y();
+    }
+}
+
+obj2.x();
