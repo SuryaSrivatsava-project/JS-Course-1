@@ -146,9 +146,9 @@ fetch('https://jsonplaceholder.typicode.com/users').then((response)=>{
      resp}).catch(e=>console.log(e))
 
 */
-
-const getUser =  function(userInfo){
-    const data =  userInfo;
+// Fetch Examples
+const getUser =  async function(){
+    const data =   await getUsers();
     console.log('hello')
     console.log(data)
 }
@@ -156,7 +156,8 @@ const getUser =  function(userInfo){
     
         const resp = await fetch('https://jsonplaceholder.typicode.com/users')
         const userData = await resp.json();
-        getUser();
+        return userData;
  }
 
+ getUser();
 
