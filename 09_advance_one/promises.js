@@ -138,8 +138,25 @@ fetchData();
 
 */
 
-// fetch('https://jsonplaceholder.typicode.com/users').then((response)=>{
-//     return response.json();
-// }).then((resp)=>{
-//      console.log(resp)}).catch(e=>console.log(e))
+// fetch 
+/*
+fetch('https://jsonplaceholder.typicode.com/users').then((response)=>{
+     response.json();
+}).then((resp)=>{
+     resp}).catch(e=>console.log(e))
+
+*/
+
+const getUser =  function(userInfo){
+    const data =  userInfo;
+    console.log('hello')
+    console.log(data)
+}
+ async function getUsers(){
+    
+        const resp = await fetch('https://jsonplaceholder.typicode.com/users')
+        const userData = await resp.json();
+        getUser();
+ }
+
 
