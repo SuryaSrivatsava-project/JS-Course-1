@@ -31,6 +31,10 @@ x();
   1. arrow functions do not have their own this keyword
   2. They take it from lexical environment where the "arrow function is enclosed"
   3. where the object is present in lexical context, gets this from enclosed lexical context {window object}
+
+  // HTML
+  <button onclick = 'alert(this)'>button</button>
+  here, this refers to the HTML element
 */
 
 //this inside a Objects method
@@ -66,6 +70,7 @@ const obj2 ={
     a:'surya',
     x: function(){
         const y = ()=>{
+            // enclosing lexical context of this function
             console.log(this);
             // here the value is this object itself
         }
