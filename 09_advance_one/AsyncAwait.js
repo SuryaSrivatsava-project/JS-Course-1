@@ -10,7 +10,9 @@
  */
 // Async function
 const p = new Promise(function(resolve,reject){
+  setTimeout(function(){
     resolve('Resolved Promise');
+  },10000)
 })
 /*
 //always return a promise
@@ -26,11 +28,24 @@ console.log(dataPromise);
 
 //Async and Await combo are used to handle promises
 async function handlePromise(){
+  console.log("hello world"); // this statement prints first
+  // Here JS engine does not go forward until this promise is resolved
+  // JS engine waits for the promise to be resolved
    const val = await p;
+   console.log("namaste");
    console.log(val);
+   const val2 = await p;
+   console.log("namaste");
+   console.log(val2);
+
 }
+handlePromise()
+
+// traditional way of handling promises
 // function getData(){
+//     // JS engine will not wait for promise to be resolved and continues to next line
 //     p.then(res=>console.log(res));
+//     // this prints first
+//     console.log('namaste')
 // }
 // getData();
-handlePromise()
