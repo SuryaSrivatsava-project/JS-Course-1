@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+    <style>
+        div{
+            min-width: 100px;
+            min-height: 100px;
+            padding: 30px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <div id="grand">
+        <ul id="category">
+            <li id="laptops">laptops</li>
+            <li id="cameras">cameras</li>
+            <li id="shoes">shoes</li>
+        </ul>
+    </div> -->
+    <div id="form">
+            <input type="text" id="name" data-uppercase>
+            <input type="text" id="pan">
+            <input type="text" id="mobile">
+        </div>  
+    <script>
+        /*
+            1. Provides good techniques to handle event handlers properly
+            2. Event Delegation states that instead of attaching event handlers to each
+               and every HTML element individually, attach to parent of the elements
+            3. This reduces performance issues
+            4. Event bubbling helps in bubbling the child event propagation to parent
+        */
+    //    const grand = document.querySelector('#grand');
+    //    grand.addEventListener('click',function(){
+    //     console.log('grand')
+    //    });
+
+    // Due to Event Bubbling, adding event listener to parent can be helpful
+    // clicking any child will bubble up event to parent and we can catch the event
+    // This event handler is attached to the id category so any child inside category will trigger the event
+    /*
+       const parent = document.querySelector('#category');
+       parent.addEventListener('click',function(e){
+        console.log(e);
+        if(e.target.tagName == 'LI'){
+        window.location.href = "/"+e.target.id;
+        }
+        e.stopPropagation();
+       });
+    */
+
+    //Example 2
+    const parent = document.querySelector('#form');
+       parent.addEventListener('keyup',function(e){
+        console.log(e);
+        if(e.target.dataset.uppercase!=undefined){
+            e.target.value = e.target.value.toUpperCase();
+        }
+       });
+    </script>
+</body>
+</html>

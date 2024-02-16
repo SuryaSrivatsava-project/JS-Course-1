@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        div{
+            min-width: 100px;
+            min-height: 100px;
+            padding: 30px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="grandParent">
+        <div id="parent">
+            <div id="child"></div>
+        </div>
+    </div>
+</body>
+<script>
+/* Event Bubbling and Capturing/ trickling down
+ * Event Bubbling comes from bottom to top (child to parent and its parent....)
+ * Capturing happens from parent to child  (parent to child and its lower child....)
+ * addEventListener('click',callback(){},default:false/true)
+ * Third argument is useCapture. If set true it event triggers from top to bottom (Capturing mode)
+ * If its false/default= false events will bubble up
+ * Note: According to W3C capturing happens first and then bubbling happens and call back methods 
+         are called according to parameters.
+ */
+
+    const grandParent = document.querySelector('#grandParent')
+    const parent = document.querySelector('#parent')
+    const child= document.querySelector('#child')
+    // Bubbling mode
+    /*
+    */
+    grandParent.addEventListener('click',function(e){
+        console.log('clicked grandparent');
+    },false) // since GrandParent has event listener, clicking in grandchild will bubble up
+    // parent.addEventListener('click',function(e){
+    //     console.log('clicked parent');
+    // },false)
+    // child.addEventListener('click',function(e){
+    //     console.log('clicked child');
+    // },false)
+
+   // Capture mode
+   /*
+   grandParent.addEventListener('click',function(e){
+        console.log('clicked grandparent');
+    },true)
+    parent.addEventListener('click',function(e){
+        console.log('clicked parent');
+    },true)
+    child.addEventListener('click',function(e){
+        console.log('clicked child');
+    },true) // clicking this will result in all three execution
+    */
+   
+   // Mixed mode
+   /*
+   grandParent.addEventListener('click',function(e){
+        console.log('clicked grandparent');
+    },true) // capturing
+    parent.addEventListener('click',function(e){
+        console.log('clicked parent');
+    },false) // bubbling
+    child.addEventListener('click',function(e){
+        console.log('clicked child');
+    },true) //capturing
+    */
+    // Output when child clicked is grandparent, child and parent
+    /* This happens because, grandparent has capture mode so it comes first 
+       next parent has capture set to false so its under bubbling so it does not come
+       next child has capture phase so it comes up. When child is triggered, capture phase is over
+       and bubbling phase starts thereby parent comes up
+    */
+   
+
+   // Stopping Event Propagation
+   /*
+    Bubbling and Capturing are costly process
+    stopPropagation() can be used to stop the propagation of the event
+   */
+/*
+   grandParent.addEventListener('click',function(e){
+        console.log('clicked grandparent');
+    },false)
+    parent.addEventListener('click',function(e){
+        console.log('clicked parent');
+        e.stopPropagation();
+        // clicking child will call parent and next it won't bubble up and will not print grandParent
+    },false)
+    child.addEventListener('click',function(e){
+        console.log('clicked child');
+    },false)
+    */
+// Function currying  can also be done via closures
+//    const mul = {
+//     multiply:function(a,b){
+//         console.log(a*b);
+//     }
+//    }
+//    const mul1 = mul.multiply.bind(this,2); // here second argument refers to a param 
+//    mul1(2)
+</script>
+</html>
