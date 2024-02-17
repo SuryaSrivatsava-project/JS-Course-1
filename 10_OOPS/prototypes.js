@@ -2,6 +2,7 @@
     1. Whenever an object is created, JS attaches an object to the original object
     2. That's how we get access to all the properties and methods
     3. In below example arr.__proto__ can help access the prototype object
+    4. only constructor fun
 
     prototype chaining
 
